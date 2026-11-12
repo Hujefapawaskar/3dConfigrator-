@@ -139,6 +139,24 @@ src/
 | Auto-rotate · Exploded view · Fullscreen | A · E · F |
 | Shortcut list · Close dialog | ? · Esc |
 
+## Deploy to Vercel
+
+The project is ready for Vercel with no extra configuration. `vercel.json` pins the framework, install and build commands, and adds security headers and long-lived caching for the PDF fonts.
+
+**From the CLI**
+
+```bash
+npx vercel login          # one time
+npx vercel                # preview deployment
+npx vercel --prod         # production deployment
+```
+
+**From Git:** push the repository to GitHub, GitLab or Bitbucket, then choose **Add New → Project** in the Vercel dashboard and import it. Vercel detects Next.js automatically.
+
+**Site URL:** Open Graph and canonical URLs use `NEXT_PUBLIC_SITE_URL` when it is set. Otherwise they use Vercel's production domain (`VERCEL_PROJECT_PRODUCTION_URL`), so they're correct on Vercel without any setup. Set `NEXT_PUBLIC_SITE_URL` once you add a custom domain.
+
+The 404 page (`src/app/not-found.tsx`) is static, returns a real 404 status and is excluded from search indexing.
+
 ## Notes
 
 - This is a front-end product demo. There is no backend: checkout is simulated and data stays in the browser.
